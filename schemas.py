@@ -21,6 +21,7 @@ class itemUpdateSchema(Schema):
 class itemSchema(PlainitemSchema):
     store_id = fields.Int(required=True)
     store = fields.Nested(PlainstoreSchema, dump_only=True)
+    tags = fields.List(fields.Nested(PlainTagSchema), dump_only=True)
 
 class storeSchema(PlainstoreSchema):
     items= fields.List(fields.Nested(PlainitemSchema), dump_only=True)
@@ -29,3 +30,14 @@ class storeSchema(PlainstoreSchema):
 class tagSchema(PlainTagSchema):
     store_id = fields.Int(dump_only=True)
     store = fields.Nested(PlainstoreSchema, dump_only=True)
+    items = fields.List(fields.Nested(PlainitemSchema), dump_only=True)
+
+class TagAndItemSchema(Schema):
+    messasge = fields.Str()
+    item = fields.Nested(itemSchema)
+    tag = fields.Nested(tagSchema)
+
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True) # dump_only - will be created by database and not sent by user
+    username = fields.Str(required=True)
+    password = fields.Str(required=True, load_only=True) # load_only - will not be sent by user
