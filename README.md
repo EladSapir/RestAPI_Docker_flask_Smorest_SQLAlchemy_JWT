@@ -7,7 +7,6 @@ This project is a REST API built using Flask with Docker, Flask-Smorest for API 
 - [Features](#features)
 - [Live Deployment](#live-deployment)
 - [Installation](#installation)
-- [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Authentication](#authentication)
 
@@ -60,17 +59,6 @@ To run this project locally, follow these steps:
     ```bash
     docker-compose up --build
     ```
-
-## Usage
-
-1. **Start the Application**:
-    ```bash
-    docker-compose up
-    ```
-   The application should now be accessible at `http://localhost:5000/`.
-
-2. **Interactive API Documentation**:
-   Access interactive API documentation by navigating to `http://localhost:5000/swagger-ui/` or `http://localhost:5000/redoc/` to explore and test the available endpoints.
 
 ## API Endpoints
 
